@@ -226,7 +226,8 @@ function searchLoaded(index, docs) {
 
       var resultDocTitle = document.createElement('div');
       resultDocTitle.classList.add('search-result-doc-title');
-      resultDocTitle.innerHTML = doc.doc != null ? `{% t ${doc.doc} %}` : '';
+      var tmpTitle = "{% t " + doc.doc  + " %}";
+      resultDocTitle.innerHTML = tmpTitle
       resultDoc.appendChild(resultDocTitle);
       var resultDocOrSection = resultDocTitle;
 
