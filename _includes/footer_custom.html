@@ -7,7 +7,7 @@
     <br>
   {% endif %}
   
-  {% if site.subtitle != nil and site.subtitle != "" %} 
+  {% if site.subtitle != nil and {% t site.subtitle %} != "" %}
     {% t site.subtitle %}
     <br>
   {% endif %}
