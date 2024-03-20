@@ -7,9 +7,9 @@
     <br>
   {% endif %}
   
-  {% capture subtitle %}
-    {% t site.subtitle %}
-  {% endcapture %}
+  {%- capture subtitle -%}
+    {%- t site.subtitle -%}
+  {%- endcapture -%}
   {% if subtitle != nil and subtitle != "" %}
     {{ subtitle }}
     <br>
