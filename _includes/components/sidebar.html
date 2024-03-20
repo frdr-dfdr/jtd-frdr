@@ -15,6 +15,7 @@
 
   <span class="fs-4" style="padding-top: 10px; float: left;">
     {% if site.lang == "fr" %}
+    {{ site.baseurl}}
     <a href="{{ site.baseurl | remove_last: '/fr'}}{{ page.url }}" class="btn btn-primary">{% t site.language %}</a>
     {% elsif site.lang == "en" %}
     <a href="{{ site.baseurl }}/fr{{ page.url }}" class="btn btn-primary">{% t site.language %}</a>
