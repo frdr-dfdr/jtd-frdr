@@ -16,9 +16,9 @@
   <span class="fs-4" style="padding-top: 10px; float: left;">
     {% if site.lang == "fr" %}
       {%- capture string_to_replace -%}
-        {{site.url}}/fr
+        {{site.baseurl}}/fr
       {%- endcapture -%}
-    <a href="{{ site.baseurl | replace: string_to_replace, '/frdr_curation_workflow' }}{{ page.url }}" class="btn btn-primary">{% t site.language %}</a>
+    <a href="{{ site.baseurl | replace: string_to_replace, site.baseurl }}{{ page.url }}" class="btn btn-primary">{% t site.language %}</a>
     {% elsif site.lang == "en" %}
     <a href="{{ site.baseurl }}/fr{{ page.url }}" class="btn btn-primary">{% t site.language %}</a>
     {% endif %}
