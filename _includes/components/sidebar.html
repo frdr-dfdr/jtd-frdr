@@ -13,7 +13,7 @@
     addEventListener("resize", (event) => {textFit(document.getElementById("title-text"));});
   </script>
 
-  <span class="fs-5">
+  <span class="fs-4" style="padding-top: 10px; float: right;">
     {% if site.lang == "fr" %}
     <a href="{{ site.baseurl | replace: '/frdr_curation_workflow/fr', '/frdr_curation_workflow' }}{{ page.url }}" class="btn btn-primary">{% t site.language %}</a>
     {% elsif site.lang == "en" %}
