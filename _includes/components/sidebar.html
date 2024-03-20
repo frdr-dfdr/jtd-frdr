@@ -13,7 +13,7 @@
     addEventListener("resize", (event) => {textFit(document.getElementById("title-text"));});
   </script>
 
-  <div class="fs-4" style="padding-top: 10px; left: 0;">
+  <div class="fs-4" style="padding-top: 10px; flex-direction: column; text-align: left;">
     {% if site.lang == "fr" %}
     {% assign num = site.baseurl | size | minus: 3 %}
     <a href="{{ site.baseurl | slice: 0, num }}{{ page.url }}" class="btn btn-primary">{% t site.language %}</a>
