@@ -19,7 +19,7 @@
       {% assign num = site.baseurl | size | minus: 3 %}
       <a href="{{ site.baseurl | slice: 0, num }}{{ page.url }}" class="btn btn-primary" style="color: black;">{% t site.language %}</a>
       {% elsif site.lang == "en" %}
-      <a href="{{ site.baseurl }}/fr{{ page.url }}" class="btn btn-primary">{% t site.language %}</a>
+      <a href="{{ site.baseurl }}/fr{{ page.url }}" class="btn btn-primary" style="color: black;"">{% t site.language %}</a>
       {% endif %}
     </div>  
     {% assign pages_top_size = site.html_pages
