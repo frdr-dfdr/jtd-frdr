@@ -1,5 +1,5 @@
 <p style="font-size:0.75em">
-  Brought to you by the <a href="https://www.frdr-dfdr.ca/repo/">FRDR</a> service team.
+  {% t footer.attribution %}
   <br>
 
   {% if site.credits != nil and site.credits != ""   %}
@@ -13,7 +13,7 @@
   {% endif %}
 
   {% if site.license_name != nil %}
-    This work is licensed under a
+    {% footer.license %}
     {% if site.license_url != nil %}
       <a rel="license" target="_blank" href="{{ site.license_url }}">
     {% endif %}
@@ -21,19 +21,45 @@
     <br>
   {% endif %}
 
-  Site last modified:
-  {% assign month = site.time | date: "%B" %}
+  {% t footer.modified %}}
+  {% if site.lang == "en" %}
+    {% assign month = site.time | date: "%B" %}
 
-  {% case month %}
-      {% when 'January' %} Jan.
-      {% when 'February' %} Feb.
-      {% when 'August' %} Aug.
-      {% when 'September' %} Sept.
-      {% when 'October' %} Oct.
-      {% when 'November' %} Nov.
-      {% when 'December' %} Dec.
-      {% else %}{{ month }}
-  {% endcase %}
+    {% case month %}
+        {% when 'January' %} Jan.
+        {% when 'February' %} Feb.
+        {% when 'August' %} Aug.
+        {% when 'September' %} Sept.
+        {% when 'October' %} Oct.
+        {% when 'November' %} Nov.
+        {% when 'December' %} Dec.
+        {% else %}{{ month }}
+    {% endcase %}
 
-  {{ site.time | date: "%-d, %Y" }}
+    {{ site.time | date: "%-d, %Y" }}
+  {% elsif site.lang == "fr" %}
+    {{ site.time | date: "%-d "}}
+
+    {% assign month = site.time | date: "%B" %}
+
+    {% case month %}
+        {% when 'January' %} janv.
+        {% when 'February' %} févr.
+        {% when 'March' %} mars
+        {% when 'April' %} avr.
+        {% when 'May' %} mai
+        {% when 'June' %} juin
+        {% when 'July' %} juil
+        {% when 'August' %} août
+        {% when 'September' %} sept.
+        {% when 'October' %} oct.
+        {% when 'November' %} nov.
+        {% when 'December' %} déc.
+    {% endcase %}
+
+    {{ site.time | date: ", %Y" }}
+  {% endif %}
+
+
+ 
 </p>
