@@ -13,14 +13,15 @@
     addEventListener("resize", (event) => {textFit(document.getElementById("title-text"));});
   </script>
 
-  <span class="fs-4" style="padding-top: 10px; float: left;">
+  <div class="fs-4" style="padding-top: 10px; float: left;">
     {% if site.lang == "fr" %}
     {{ site.baseurl}}
-    <a href="{{ site.baseurl | remove_last: '/fr'}}{{ page.url }}" class="btn btn-primary">{% t site.language %}</a>
+    {% assign num = site.baseurl | size | minus: 3 %}
+    <a href="{{ site.baseurl | slice: 0, num }}{{ page.url }}" class="btn btn-primary">{% t site.language %}</a>
     {% elsif site.lang == "en" %}
     <a href="{{ site.baseurl }}/fr{{ page.url }}" class="btn btn-primary">{% t site.language %}</a>
     {% endif %}
-  </span>
+  </div>
 
   <nav aria-label="Main" id="site-nav" class="site-nav">
     {% assign pages_top_size = site.html_pages
