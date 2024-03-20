@@ -10,7 +10,11 @@
   {% if footer_custom != "" %}
     {{ footer_custom }}
   {% endif %}
-  {% assign gh_edit_link_text = t site.gh_edit_link_text %}
+
+  {% capture gh_edit_link_text %}
+    {% t site.gh_edit_link_text %}
+  {% endcapture %}
+
   {% if
     site.gh_edit_link and
     gh_edit_link_text and
