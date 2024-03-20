@@ -74,9 +74,9 @@
     <footer class="site-footer">
       <div>
         {% if site.lang == "fr" %}
-        <a href="/" class="btn btn-primary">{% t site.language %}</a>
+        <a href="{{ site.baseurl }}fr{{ page.url}}" class="btn btn-primary">{% t site.language %}</a>
         {% elsif site.lang == "en" %}
-        <a href="/fr" class="btn btn-primary">{% t site.language %}</a>
+        <a href="{{ site.baseurl }}{{ page.url}}" class="btn btn-primary">{% t site.language %}</a>
         {% endif %}
       </div>
       <div class="text-small text-grey-dk-300 mb-4" style="display:grid; justify-items:center; row-gap:5px">
