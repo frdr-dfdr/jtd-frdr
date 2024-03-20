@@ -49,17 +49,17 @@
           </a>
           <br>
         {% else %}
-          <img width="170" style="padding-bottom:15px;" align="middle" alt="Top Logo" src="{{ site.nav_footer_logo_top }}"> 
+          <img width="170" style="padding-bottom:15px;" align="middle" alt="Top Logo" src="{ site.nav_footer_logo_top }}"> 
           <br>
         {% endif %}
       {% endif %}
       {% if site.nav_footer_logo_bottom %}
         {% if site.nav_footer_logo_bottom_href %}
           <a href="{{ site.nav_footer_logo_bottom_href }}">
-            <img width="170" style="padding-bottom:15px;" align="middle" alt="Bottom Logo" src="{{ site.nav_footer_logo_bottom }}">
+            <img width="170" style="padding-bottom:15px;" align="middle" alt="Bottom Logo" src="{% t site.nav_footer_logo_bottom %}">
           </a>
         {% else %}
-          <img width="170" style="padding-bottom:15px;" align="middle" alt="Bottom Logo" src="{{ site.nav_footer_logo_bottom }}">
+          <img width="170" style="padding-bottom:15px;" align="middle" alt="Bottom Logo" src="{% t site.nav_footer_logo_bottom %}">
         {% endif %}
       {% endif %}
     </div>

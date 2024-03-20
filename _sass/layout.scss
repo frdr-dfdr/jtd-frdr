@@ -73,6 +73,15 @@
   }
 }
 
+
+.lang-btn {
+  padding-bottom: 20px;
+  
+  @include mq(md) {
+    padding-left: 10%;;
+  }
+}
+
 .site-nav,
 .site-header,
 .site-footer {
