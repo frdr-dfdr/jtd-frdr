@@ -72,6 +72,13 @@
     {{ nav_footer_custom }}
   {% else %}
     <footer class="site-footer">
+      <div>
+        {% if site.lang == "fr" %}
+        <a href="/" class="btn btn-primary">{% t site.language %}</a>
+        {% elsif site.lang == "en" %}
+        <a href="/fr" class="btn btn-primary">{% t site.language %}</a>
+        {% endif %}
+      </div>
       <div class="text-small text-grey-dk-300 mb-4" style="display:grid; justify-items:center; row-gap:5px">
         {% if site.license_image_url != nil %}
         <a href=" {{site.license_url}} ">
