@@ -76,8 +76,12 @@
 
 .lang-btn {
   padding-bottom: 20px;
-  
-  @include mq(xs, sm) {
+
+  @include mq(xs) {
+    padding-left: 5%;
+  }
+
+  @include mq(sm) {
     padding-left: 5%;
   }
   @include mq(md) {
