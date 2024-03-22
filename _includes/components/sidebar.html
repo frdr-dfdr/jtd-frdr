@@ -14,14 +14,17 @@
   </script>
 
   <nav aria-label="Main" id="site-nav" class="site-nav">
-    <div class="lang-btn fs-4">
-      {% if site.lang == "fr" %}
-      {% assign num = site.baseurl | size | minus: 3 %}
-      <a href="{{ site.baseurl | slice: 0, num }}{{ page.url }}" class="btn btn-primary" style="color: black;">{% t site.language %}</a>
-      {% elsif site.lang == "en" %}
-      <a href="{{ site.baseurl }}/fr{{ page.url }}" class="btn btn-primary" style="color: black;"">{% t site.language %}</a>
-      {% endif %}
-    </div>  
+    {% if site.language_switcher %}
+      <div class="lang-btn fs-4">
+        {% if site.lang == "fr" %}
+        {% assign num = site.baseurl | size | minus: 3 %}
+        <a href="{{ site.baseurl | slice: 0, num }}{{ page.url }}" class="btn btn-primary" style="color: black;">{% t site.language %}</a>
+        {% elsif site.lang == "en" %}
+        <a href="{{ site.baseurl }}/fr{{ page.url }}" class="btn btn-primary" style="color: black;"">{% t site.language %}</a>
+        {% endif %}
+      </div>  
+    {% endif %}
+    
     {% assign pages_top_size = site.html_pages
           | where_exp:"item", "item.title != nil"
           | where_exp:"item", "item.parent == nil"
