@@ -29,7 +29,7 @@ that includes `page`, AND `...` holds. {%- endcomment -%}
   {%- for node in first_level_pages -%} {%- unless node.nav_exclude -%} {% if
   node.blank == true and node.has_children == true %}
   <li
-    class="nav-list-item{% if page.collection == include.key and page.url == node.url or (t page.grand_parent) == (t node.title) or (t page.parent) == (t node.title) and page.grand_parent == nil %} active{% endif %}"
+    class="nav-list-item{% if page.collection == include.key and page.url == node.url or page.grand_parent == node.title or page.parent == node.title and page.grand_parent == nil %} active{% endif %}"
   >
     <a
       style="
@@ -56,7 +56,7 @@ that includes `page`, AND `...` holds. {%- endcomment -%}
   </li>
 
   <li
-    class="nav-list-item{% if page.collection == include.key and page.url == node.url or (t page.grand_parent) == (t node.title) or (t page.parent) == (t node.title) and page.grand_parent == nil %} active{% endif %}"
+    class="nav-list-item{% if page.collection == include.key and page.url == node.url or page.grand_parent == node.title or page.parent == node.title and page.grand_parent == nil %} active{% endif %}"
   >
     {%- if node.has_children -%}
     <a
@@ -73,14 +73,14 @@ that includes `page`, AND `...` holds. {%- endcomment -%}
       >{% t node.title %}</a
     >
     {% endif %} {%- if node.has_children -%} {%- assign children_list =
-    second_level_pages | where: "parent", t node.title -%} {%- if
+    second_level_pages | where: "parent", node.title -%} {%- if
     node.child_nav_order == 'desc' or node.child_nav_order == 'reversed' -%} {%-
     assign children_list = children_list | reverse -%} {%- endif -%}
     <ul class="nav-list">
       {%- for child in children_list -%} {%- unless child.nav_exclude -%} {% if
       child.blank == true and child.has_children %}
       <li
-        class="nav-list-item {% if page.url == child.url or (t page.parent) == (t child.title) %} active{% endif %}"
+        class="nav-list-item {% if page.url == child.url or page.parent == child.title %} active{% endif %}"
       >
         <a
           style="
@@ -107,7 +107,7 @@ that includes `page`, AND `...` holds. {%- endcomment -%}
       </li>
 
       <li
-        class="nav-list-item {% if page.url == child.url or (t page.parent) == (t child.title) %} active{% endif %}"
+        class="nav-list-item {% if page.url == child.url or page.parent == child.title %} active{% endif %}"
       >
         {%- if child.has_children -%}
         <a
@@ -126,10 +126,10 @@ that includes `page`, AND `...` holds. {%- endcomment -%}
           >{% t child.title %}</a
         >
         {% endif %} {%- if child.has_children -%} {%- assign grand_children_list
-        = third_level_pages | where: "parent", t child.title | where:
-        "grand_parent", t node.title -%} {%- if child.child_nav_order == 'desc'
-        or child.child_nav_order == 'reversed' -%} {%- assign
-        grand_children_list = grand_children_list | reverse -%} {%- endif -%}
+        = third_level_pages | where: "parent", child.title | where:
+        "grand_parent", node.title -%} {%- if child.child_nav_order == 'desc' or
+        child.child_nav_order == 'reversed' -%} {%- assign grand_children_list =
+        grand_children_list | reverse -%} {%- endif -%}
         <ul class="nav-list">
           {%- for grand_child in grand_children_list -%} {%- unless
           grand_child.nav_exclude -%}
