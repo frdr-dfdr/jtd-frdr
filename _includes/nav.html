@@ -29,7 +29,7 @@ that includes `page`, AND `...` holds. {%- endcomment -%}
   {%- for node in first_level_pages -%} {%- unless node.nav_exclude -%} {% if
   node.blank == true and node.has_children == true %}
   <li
-    class="nav-list-item{% if page.collection == include.key and page.url == node.url or t page.grand_parent == t node.title or t page.parent == t node.title and t page.grand_parent == nil %} active{% endif %}"
+    class="nav-list-item{% if page.collection == include.key and page.url == node.url or (t page.grand_parent) == (t node.title) or (t page.parent) == (t node.title) and page.grand_parent == nil %} active{% endif %}"
   >
     <a
       style="
@@ -56,7 +56,7 @@ that includes `page`, AND `...` holds. {%- endcomment -%}
   </li>
 
   <li
-    class="nav-list-item{% if page.collection == include.key and page.url == node.url or t page.grand_parent == t node.title or t page.parent == t node.title and page.grand_parent == nil %} active{% endif %}"
+    class="nav-list-item{% if page.collection == include.key and page.url == node.url or (t page.grand_parent) == (t node.title) or (t page.parent) == (t node.title) and page.grand_parent == nil %} active{% endif %}"
   >
     {%- if node.has_children -%}
     <a
@@ -80,7 +80,7 @@ that includes `page`, AND `...` holds. {%- endcomment -%}
       {%- for child in children_list -%} {%- unless child.nav_exclude -%} {% if
       child.blank == true and child.has_children %}
       <li
-        class="nav-list-item {% if page.url == child.url or t page.parent == t child.title %} active{% endif %}"
+        class="nav-list-item {% if page.url == child.url or (t page.parent) == (t child.title) %} active{% endif %}"
       >
         <a
           style="
@@ -107,7 +107,7 @@ that includes `page`, AND `...` holds. {%- endcomment -%}
       </li>
 
       <li
-        class="nav-list-item {% if page.url == child.url or t page.parent == t child.title %} active{% endif %}"
+        class="nav-list-item {% if page.url == child.url or (t page.parent) == (t child.title) %} active{% endif %}"
       >
         {%- if child.has_children -%}
         <a
