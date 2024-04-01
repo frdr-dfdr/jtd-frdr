@@ -203,6 +203,17 @@ function searchLoaded(index, docs) {
     }
 
     function addResult(resultsList, result) {
+      const yaml = require('js-yaml');
+      const fs = require('fs');
+      
+      // Get document, or throw exception on error
+      try {
+        const doc = yaml.load(fs.readFileSync('/_i18n/en.yml', 'utf8'));
+        console.log(doc);
+      } catch (e) {
+        console.log(e);
+      }
+            
       var doc = docs[result.ref];
 
       var resultsListItem = document.createElement('li');
@@ -226,7 +237,7 @@ function searchLoaded(index, docs) {
 
       var resultDocTitle = document.createElement('div');
       resultDocTitle.classList.add('search-result-doc-title');
-      resultDocTitle.innerHTML = '<div> {% t doc.doc %} </div>';
+      resultDocTitle.innerHTML = doc.doc;
       resultDoc.appendChild(resultDocTitle);
       var resultDocOrSection = resultDocTitle;
 
