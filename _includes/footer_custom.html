@@ -4,14 +4,6 @@
     <br>
   {% endif %}
 
-  {% if site.license_name != nil %}
-    {% if site.license_url != nil %}
-      <a rel="license" target="_blank" href="{{ site.license_url }}">
-    {% endif %}
-    {{ site.license_name }}{% if site.license_url != nil %}</a>{% endif %}.
-    <br>
-  {% endif %}
-
   {% t footer.modified %}
   {% if site.lang == "en" %}
     {% assign month = site.time | date: "%B" %}
