@@ -73,20 +73,25 @@
   }
 }
 
+a.custom-btn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: #32322f;
+  padding: 14px 16px;
+  background-color: #d6ab00;
+  font-family: inherit;
+  text-decoration: none;
+}
 
-.lang-btn {
-  padding-bottom: 20px;
-  padding-left: 12px; 
-  
-  @include mq(xs) {
-    padding-top: 10px
-  }
+a.custom-btn:hover {
+  background-color: #ebd580;
+}
 
+.btn-div {
+  border-radius: 0px;
   @include mq(sm) {
-    padding-top: 10px
-  }
-  @include mq(md) {
-    padding-left: 10%;;
+    padding-top: 10px;
   }
 }
 

@@ -1,121 +1,178 @@
 <div class="side-bar">
   <div class="site-header" id="site-header">
-    <a id="title-link" href="{{ '/' | relative_url }}" class="site-title lh-tight" style="width:100%">
-      <div id="title-text" style="margin-left:2rem; margin-right:1rem; width:100%; height: 100%; padding-top:0.5em; padding-bottom: 0.5em;">{% include title.html %}</div>
+    <a
+      id="title-link"
+      href="{{ '/' | relative_url }}"
+      class="site-title lh-tight"
+      style="width: 100%"
+    >
+      <div
+        id="title-text"
+        style="
+          margin-left: 2rem;
+          margin-right: 1rem;
+          width: 100%;
+          height: 100%;
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
+        "
+      >
+        {% include title.html %}
+      </div>
     </a>
-    <a href="#" id="menu-button" class="site-button" aria-label="navigation menu">
-      <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+    <a
+      href="#"
+      id="menu-button"
+      class="site-button"
+      aria-label="navigation menu"
+    >
+      <svg viewBox="0 0 24 24" class="icon">
+        <use xlink:href="#svg-menu"></use>
+      </svg>
     </a>
   </div>
 
   <script>
     textFit(document.getElementById("title-text"));
-    addEventListener("resize", (event) => {textFit(document.getElementById("title-text"));});
+    addEventListener("resize", (event) => {
+      textFit(document.getElementById("title-text"));
+    });
   </script>
 
   <nav aria-label="Main" id="site-nav" class="site-nav">
-    {% if site.language_switcher %}
-      <div class="lang-btn fs-4">
-        {% if site.lang == "fr" %}
-        {% assign num = site.baseurl | size | minus: 3 %}
-        <a href="{{ site.baseurl | slice: 0, num }}{{ page.url }}" class="btn btn-primary" style="color: black;">{% t site.language %}</a>
-        {% elsif site.lang == "en" %}
-        <a href="{{ site.baseurl }}/fr{{ page.url }}" class="btn btn-primary" style="color: black;"">{% t site.language %}</a>
-        {% endif %}
-      </div>  
-    {% endif %}
-    
-    {% assign pages_top_size = site.html_pages
-          | where_exp:"item", "item.title != nil"
-          | where_exp:"item", "item.parent == nil"
-          | where_exp:"item", "item.nav_exclude != true"
-          | size %}
-    {% if pages_top_size > 0 %}
-      {% include nav.html pages=site.html_pages key=nil %}
-    {% endif %}
-    {%- if site.nav_external_links -%}
-      <ul class="nav-list">
-        {%- for node in site.nav_external_links -%}
-          <li class="nav-list-item external">
-            <a href="{{ node.url | absolute_url }}" class="nav-list-link external">
-              {% t node.title %}
-              {% unless node.hide_icon %}<svg viewBox="0 0 24 24" aria-labelledby="svg-external-link-title"><use xlink:href="#svg-external-link"></use></svg>{% endunless %}
-            </a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    {%- endif -%}
-    {% if site.just_the_docs.collections %}
-      {% assign collections_size = site.just_the_docs.collections | size %}
-      {% for collection_entry in site.just_the_docs.collections %}
-        {% assign collection_key = collection_entry[0] %}
-        {% assign collection_value = collection_entry[1] %}
-        {% assign collection = site[collection_key] %}
-        {% if collection_value.nav_exclude != true %}
-          {% if collections_size > 1 or pages_top_size > 0 %}
-            {% if collection_value.nav_fold == true %}
-              <ul class="nav-list nav-category-list">
-                <li class="nav-list-item{% if page.collection == collection_key %} active{% endif %}">
-                  {%- if collection.size > 0 -%}
-                  <a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a>
-                  {%- endif -%}
-                  <div class="nav-category">{{ collection_value.name }}</div>
-                  {% include nav.html pages=collection key=collection_key %}
-                </li>
-              </ul>
-            {% else %}
-              <div class="nav-category">{{ collection_value.name }}</div>
-              {% include nav.html pages=collection key=collection_key %}
-            {% endif %}
-          {% else %}
-            {% include nav.html pages=collection key=collection_key %}
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
+    {% assign pages_top_size = site.html_pages | where_exp:"item", "item.title
+    != nil" | where_exp:"item", "item.parent == nil" | where_exp:"item",
+    "item.nav_exclude != true" | size %} {% if pages_top_size > 0 %} {% include
+    nav.html pages=site.html_pages key=nil %} {% endif %} {%- if
+    site.nav_external_links -%}
+    <ul class="nav-list">
+      {%- for node in site.nav_external_links -%}
+      <li class="nav-list-item external">
+        <a href="{{ node.url | absolute_url }}" class="nav-list-link external">
+          {% t node.title %} {% unless node.hide_icon %}<svg
+            viewBox="0 0 24 24"
+            aria-labelledby="svg-external-link-title"
+          >
+            <use xlink:href="#svg-external-link"></use></svg
+          >{% endunless %}
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+    {%- endif -%} {% if site.just_the_docs.collections %} {% assign
+    collections_size = site.just_the_docs.collections | size %} {% for
+    collection_entry in site.just_the_docs.collections %} {% assign
+    collection_key = collection_entry[0] %} {% assign collection_value =
+    collection_entry[1] %} {% assign collection = site[collection_key] %} {% if
+    collection_value.nav_exclude != true %} {% if collections_size > 1 or
+    pages_top_size > 0 %} {% if collection_value.nav_fold == true %}
+    <ul class="nav-list nav-category-list">
+      <li
+        class="nav-list-item{% if page.collection == collection_key %} active{% endif %}"
+      >
+        {%- if collection.size > 0 -%}
+        <a href="#" class="nav-list-expander"
+          ><svg viewBox="0 0 24 24">
+            <use xlink:href="#svg-arrow-right"></use></svg
+        ></a>
+        {%- endif -%}
+        <div class="nav-category">{{ collection_value.name }}</div>
+        {% include nav.html pages=collection key=collection_key %}
+      </li>
+    </ul>
+    {% else %}
+    <div class="nav-category">{{ collection_value.name }}</div>
+    {% include nav.html pages=collection key=collection_key %} {% endif %} {%
+    else %} {% include nav.html pages=collection key=collection_key %} {% endif
+    %} {% endif %} {% endfor %} {% endif %}
   </nav>
 
   <!-- NAVIGATION FOOTER -->
-  {% capture nav_footer_custom %}
-    {%- include nav_footer_custom.html -%}
-  {% endcapture %}
-  {% if nav_footer_custom != "" %}
-    {{ nav_footer_custom }}
-  {% else %}
-    <footer class="site-footer">
-      <div class="text-small text-grey-dk-300 mb-4" style="display:grid; justify-items:center; row-gap:5px">
-        {% if site.license_image_url != nil %}
-        <a href=" {{site.license_url}} " target="_blank">
-          <img alt="{{ site.license_name }}" style="border-width:0" src="{{ site.license_image_url }}" /><br/>
-        </a>
-        {% endif %}
-        {% if site.nav_footer_logo_top != '' %}
-          {% if site.nav_footer_logo_top_href == '' %}
-            <img width="75%" align="middle" alt="{% t site.nav_footer_logo_top_alt %}" src="{% t site.nav_footer_logo_top %}"> <br>
-          {% else %}
-            <a href="{% t site.nav_footer_logo_top_href %}" target="_blank" style="width:75%; text-align:center;">
-              <img width="100%" align="middle" alt="{% t site.nav_footer_logo_top_alt %}" src="{% t site.nav_footer_logo_top %}">
-            </a>
-          {% endif %}
-        {% endif %}
-        {% if site.nav_footer_logo_bottom == '' %}
-          {% if site.nav_footer_logo_bottom_href == '' %}
-            <img width="75%" style="padding-bottom:15px; padding-top:10px;" align="middle" alt="Bottom Logo" src="https://raw.githubusercontent.com/frdr-dfdr/resource-template/main/assets/img/logo.png">    
-          {% else %}
-            <a href="{% t site.nav_footer_logo_bottom_href %}" target="_blank" style="width:75%; text-align:center;">
-              <img width="100%" style="padding-bottom:15px; padding-top:10px;" align="middle" alt="Bottom Logo" src="https://raw.githubusercontent.com/frdr-dfdr/resource-template/main/assets/img/logo.png">
-            </a> 
-          {% endif %}
-        {% else %}
-            {% if site.nav_footer_logo_bottom_href == '' %}
-              <img width="75%" style="padding-bottom:15px; padding-top:10px;" align="middle" alt="{% t site.nav_footer_logo_bottom_alt %}" src="{% t site.nav_footer_logo_bottom %}">
-            {% else %}
-              <a href="{% t site.nav_footer_logo_bottom_href %}" target="_blank" style="width:75%; text-align:center;">
-                <img width="100%" style="padding-bottom:15px; padding-top:10px;" align="middle" alt="{% t site.nav_footer_logo_bottom_alt %}" src="{% t site.nav_footer_logo_bottom %}">
-              </a>
-            {% endif %}
-        {% endif %}
-      </div>
-    </footer>
+  {% capture nav_footer_custom %} {%- include nav_footer_custom.html -%} {%
+  endcapture %} {% if nav_footer_custom != "" %} {{ nav_footer_custom }} {% else
+  %}
+  <footer class="site-footer">
+    <div
+      class="text-small text-grey-dk-300 mb-4"
+      style="display: grid; justify-items: center; row-gap: 5px"
+    >
+      {% if site.license_image_url != nil %}
+      <a href=" {{site.license_url}} " target="_blank">
+        <img
+          alt="{{ site.license_name }}"
+          style="border-width: 0"
+          src="{{ site.license_image_url }}"
+        /><br />
+      </a>
+      {% endif %} {% if site.nav_footer_logo_top != '' %} {% if
+      site.nav_footer_logo_top_href == '' %}
+      <img
+        width="75%"
+        align="middle"
+        alt="{% t site.nav_footer_logo_top_alt %}"
+        src="{% t site.nav_footer_logo_top %}"
+      />
+      <br />
+      {% else %}
+      <a
+        href="{% t site.nav_footer_logo_top_href %}"
+        target="_blank"
+        style="width: 75%; text-align: center"
+      >
+        <img
+          width="100%"
+          align="middle"
+          alt="{% t site.nav_footer_logo_top_alt %}"
+          src="{% t site.nav_footer_logo_top %}"
+        />
+      </a>
+      {% endif %} {% endif %} {% if site.nav_footer_logo_bottom == '' %} {% if
+      site.nav_footer_logo_bottom_href == '' %}
+      <img
+        width="75%"
+        style="padding-bottom: 15px; padding-top: 10px"
+        align="middle"
+        alt="Bottom Logo"
+        src="https://raw.githubusercontent.com/frdr-dfdr/resource-template/main/assets/img/logo.png"
+      />
+      {% else %}
+      <a
+        href="{% t site.nav_footer_logo_bottom_href %}"
+        target="_blank"
+        style="width: 75%; text-align: center"
+      >
+        <img
+          width="100%"
+          style="padding-bottom: 15px; padding-top: 10px"
+          align="middle"
+          alt="Bottom Logo"
+          src="https://raw.githubusercontent.com/frdr-dfdr/resource-template/main/assets/img/logo.png"
+        />
+      </a>
+      {% endif %} {% else %} {% if site.nav_footer_logo_bottom_href == '' %}
+      <img
+        width="75%"
+        style="padding-bottom: 15px; padding-top: 10px"
+        align="middle"
+        alt="{% t site.nav_footer_logo_bottom_alt %}"
+        src="{% t site.nav_footer_logo_bottom %}"
+      />
+      {% else %}
+      <a
+        href="{% t site.nav_footer_logo_bottom_href %}"
+        target="_blank"
+        style="width: 75%; text-align: center"
+      >
+        <img
+          width="100%"
+          style="padding-bottom: 15px; padding-top: 10px"
+          align="middle"
+          alt="{% t site.nav_footer_logo_bottom_alt %}"
+          src="{% t site.nav_footer_logo_bottom %}"
+        />
+      </a>
+      {% endif %} {% endif %}
+    </div>
+  </footer>
   {% endif %}
 </div>
