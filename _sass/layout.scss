@@ -77,6 +77,11 @@
   float: left;
   padding-top: 20px;
   @include mq(sm) {
+    padding-bottom: 30px;
+    padding-left: 10px;
+  }
+  @include mq(xs) {
+    padding-bottom: 30px;
     padding-left: 10px;
   }
 }
@@ -94,7 +99,7 @@ a.custom-btn {
   border: none;
   outline: none;
   color: #32322f;
-  padding: 14px 16px;
+  padding: 13px 16px;
   background-color: #d6ab00;
   font-family: inherit;
   text-decoration: none;
