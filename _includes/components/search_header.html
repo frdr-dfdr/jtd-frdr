@@ -13,19 +13,22 @@
 </div>
 
 {% if site.language_switcher %}
-  <div class="btn-div fs-4">
-    {% if site.lang == "fr" %}
-    <a href="https://frdr-dfdr.github.io/fr/" class="custom-btn" style="color: black;"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
-    {% elsif site.lang == "en" %}
-    <a href="https://frdr-dfdr.github.io/" class="custom-btn" style="color: black;""><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-    {% endif %}
-  </div>  
-  <div class="btn-div fs-4">
-    {% if site.lang == "fr" %}
-    {% assign num = site.baseurl | size | minus: 3 %}
-    <a href="{{ site.baseurl | slice: 0, num }}{{ page.url }}" class="custom-btn" style="color: black;">{% t site.language %}</a>
-    {% elsif site.lang == "en" %}
-    <a href="{{ site.baseurl }}/fr{{ page.url }}" class="custom-btn" style="color: black;"">{% t site.language %}</a>
-    {% endif %}
-  </div>  
+  <div class="parent-div">
+    <div class="child-div fs-4">
+      {% if site.lang == "fr" %}
+      <a href="https://frdr-dfdr.github.io/fr/" class="custom-btn" style="color: black;"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+      {% elsif site.lang == "en" %}
+      <a href="https://frdr-dfdr.github.io/" class="custom-btn" style="color: black;""><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+      {% endif %}
+    </div>  
+    <div class="child-div fs-4">
+      {% if site.lang == "fr" %}
+      {% assign num = site.baseurl | size | minus: 3 %}
+      <a href="{{ site.baseurl | slice: 0, num }}{{ page.url }}" class="custom-btn" style="color: black;">{% t site.language %}</a>
+      {% elsif site.lang == "en" %}
+      <a href="{{ site.baseurl }}/fr{{ page.url }}" class="custom-btn" style="color: black;"">{% t site.language %}</a>
+      {% endif %}
+    </div>  
+  </div>
+ 
 {% endif %}

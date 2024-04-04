@@ -73,12 +73,23 @@
   }
 }
 
+.parent-div {
+  float: left;
+  padding-top: 20px;
+  @include mq(sm) {
+    padding-left: 10px;
+  }
+}
+.child-div {
+  float: left;
+  margin-right: 20px;
+}
+
 a.custom-btn {
   font-size: 16px;
   border: none;
   outline: none;
   color: #32322f;
-  padding: 14px 16px;
   background-color: #d6ab00;
   font-family: inherit;
   text-decoration: none;
@@ -86,13 +97,6 @@ a.custom-btn {
 
 a.custom-btn:hover {
   background-color: #ebd580;
-}
-
-.btn-div {
-  border-radius: 0px;
-  @include mq(sm) {
-    padding-top: 10px;
-  }
 }
 
 .site-nav,
