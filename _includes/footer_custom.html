@@ -1,22 +1,10 @@
 <p style="font-size:0.875em">
-  {% t footer.attribution %}
-  <br>
-
   {% if site.credits != nil and site.credits != ""   %}
     {{ site.credits }}
     <br>
   {% endif %}
-  
-  {%- capture subtitle -%}
-    {%- t site.subtitle -%}
-  {%- endcapture -%}
-  {% if subtitle != nil and subtitle != "" %}
-    {{ subtitle }}
-    <br>
-  {% endif %}
 
   {% if site.license_name != nil %}
-    {% t footer.license %}
     {% if site.license_url != nil %}
       <a rel="license" target="_blank" href="{{ site.license_url }}">
     {% endif %}
