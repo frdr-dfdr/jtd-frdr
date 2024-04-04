@@ -6,14 +6,15 @@
     <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon" alt="search-icon"><use xlink:href="#svg-search"></use></svg></label>
   </div>
   <div id="search-results" class="search-results"></div>
-  {% if site.language_switcher %}
-    <div class="lang-btn fs-4">
-      {% if site.lang == "fr" %}
-      {% assign num = site.baseurl | size | minus: 3 %}
-      <a href="{{ site.baseurl | slice: 0, num }}{{ page.url }}" class="btn btn-primary" style="color: black;">{% t site.language %}</a>
-      {% elsif site.lang == "en" %}
-      <a href="{{ site.baseurl }}/fr{{ page.url }}" class="btn btn-primary" style="color: black;"">{% t site.language %}</a>
-      {% endif %}
-    </div>  
-  {% endif %}
 </div>
+
+{% if site.language_switcher %}
+  <div class="lang-btn fs-4">
+    {% if site.lang == "fr" %}
+    {% assign num = site.baseurl | size | minus: 3 %}
+    <a href="{{ site.baseurl | slice: 0, num }}{{ page.url }}" class="btn btn-primary" style="color: black;">{% t site.language %}</a>
+    {% elsif site.lang == "en" %}
+    <a href="{{ site.baseurl }}/fr{{ page.url }}" class="btn btn-primary" style="color: black;"">{% t site.language %}</a>
+    {% endif %}
+  </div>  
+{% endif %}
