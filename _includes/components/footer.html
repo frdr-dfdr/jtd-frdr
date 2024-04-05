@@ -63,7 +63,7 @@
 {% capture nav_footer_custom %} {%- include nav_footer_custom.html -%} {%
 endcapture %} {% if nav_footer_custom != "" %} {{ nav_footer_custom }} {% else
 %}
-<footer class="site-footer-mobile">
+<div class="site-footer-mobile">
   <div class="text-small text-grey-dk-300 mb-4">
     {% if site.license_image_url != nil %}
     <a href="{{ site.license_url }}">
@@ -75,5 +75,5 @@ endcapture %} {% if nav_footer_custom != "" %} {{ nav_footer_custom }} {% else
     </a>
     {% endif %}
   </div>
-</footer>
+</div>
 {% endif %}
