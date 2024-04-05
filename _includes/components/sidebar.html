@@ -104,74 +104,7 @@
           src="{{ site.license_image_url }}"
         /><br />
       </a>
-      {% endif %} {% if site.nav_footer_logo_top != '' %} {% if
-      site.nav_footer_logo_top_href == '' %}
-      <img
-        width="75%"
-        align="middle"
-        alt="{% t site.nav_footer_logo_top_alt %}"
-        src="{% t site.nav_footer_logo_top %}"
-      />
-      <br />
-      {% else %}
-      <a
-        href="{% t site.nav_footer_logo_top_href %}"
-        target="_blank"
-        style="width: 75%; text-align: center"
-      >
-        <img
-          width="100%"
-          align="middle"
-          alt="{% t site.nav_footer_logo_top_alt %}"
-          src="{% t site.nav_footer_logo_top %}"
-        />
-      </a>
-      {% endif %} {% endif %} {% if site.nav_footer_logo_bottom == '' %} {% if
-      site.nav_footer_logo_bottom_href == '' %}
-      <img
-        width="75%"
-        style="padding-bottom: 15px; padding-top: 10px"
-        align="middle"
-        alt="Bottom Logo"
-        src="https://raw.githubusercontent.com/frdr-dfdr/resource-template/main/assets/img/logo.png"
-      />
-      {% else %}
-      <a
-        href="{% t site.nav_footer_logo_bottom_href %}"
-        target="_blank"
-        style="width: 75%; text-align: center"
-      >
-        <img
-          width="100%"
-          style="padding-bottom: 15px; padding-top: 10px"
-          align="middle"
-          alt="Bottom Logo"
-          src="https://raw.githubusercontent.com/frdr-dfdr/resource-template/main/assets/img/logo.png"
-        />
-      </a>
-      {% endif %} {% else %} {% if site.nav_footer_logo_bottom_href == '' %}
-      <img
-        width="75%"
-        style="padding-bottom: 15px; padding-top: 10px"
-        align="middle"
-        alt="{% t site.nav_footer_logo_bottom_alt %}"
-        src="{% t site.nav_footer_logo_bottom %}"
-      />
-      {% else %}
-      <a
-        href="{% t site.nav_footer_logo_bottom_href %}"
-        target="_blank"
-        style="width: 75%; text-align: center"
-      >
-        <img
-          width="100%"
-          style="padding-bottom: 15px; padding-top: 10px"
-          align="middle"
-          alt="{% t site.nav_footer_logo_bottom_alt %}"
-          src="{% t site.nav_footer_logo_bottom %}"
-        />
-      </a>
-      {% endif %} {% endif %}
+      {% endif %} 
     </div>
   </footer>
   {% endif %}
