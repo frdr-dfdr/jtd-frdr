@@ -3,11 +3,10 @@
 <footer>
   {% if site.back_to_top %}
   <p><a href="#top" id="back-to-top">{% t site.back_to_top_text %}</a></p>
-  {% endif %} {%
-  capture gh_edit_link_text %} {% t site.gh_edit_link_text %} {% endcapture %}
-  {% if site.gh_edit_link and gh_edit_link_text and site.gh_edit_repository and
-  site.gh_edit_branch and site.gh_edit_view_mode %}
-  <p class="text-grey-dk-000 mb-0" style="font-size: 16px;">
+  {% endif %} {% capture gh_edit_link_text %} {% t site.gh_edit_link_text %} {%
+  endcapture %} {% if site.gh_edit_link and gh_edit_link_text and
+  site.gh_edit_repository and site.gh_edit_branch and site.gh_edit_view_mode %}
+  <p class="text-grey-dk-000 mb-0" style="font-size: 16px">
     <a
       href="{{ site.gh_edit_repository }}/{{ site.gh_edit_view_mode }}/{{ site.gh_edit_branch }}{% if site.gh_edit_source %}/{{ site.gh_edit_source }}{% endif %}{% if page.collection and site.collections_dir %}/{{ site.collections_dir }}{% endif %}/{{ page.path }}"
       id="edit-this-page"
@@ -18,53 +17,47 @@
 </footer>
 
 <div id="footer-container">
-      <footer id="websiteFooter">
-        <div class="footer-navigation">
-          {% if footer_custom != "" %} {{ footer_custom }} {% endif %} 
-        </div>
-        <div class="footer-contact">
-          <img
-            alt=""
-            src="{% t site.nav_footer_logo_top %}"
-            style="height: 100%; width: 100%; object-fit: contain"
-          />
-        </div>
-        <div class="footer-social">
-          <img
-            alt=""
-            src="{% t site.nav_footer_logo_bottom %}"
-            style="height: 100%; width: 100%; object-fit: contain"
-          />
-          <div class="socials">
-            <a
-              class="social-media-icon"
-              href=""
-              target="_blank"
-              aria-label=""
-            >
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-            <a
-              class="social-media-icon"
-              href=""
-              target="_blank"
-              aria-label=""
-            >
-              <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            var currentYear = new Date().getFullYear();
-            document.getElementById("currentYear").textContent = currentYear;
-          });
-        </script>
-        <a class="copyright" href="" target="_blank"
-          >©&nbsp;<span id="currentYear"></span>&nbsp;Digital Research Alliance of Canada</a
-        >
-      </footer>
+  <footer id="websiteFooter">
+    <div class="footer-navigation">
+      {% if footer_custom != "" %} {{ footer_custom }} {% endif %}
     </div>
+    <div class="footer-contact">
+      <a href="{% t site.nav_footer_logo_top_href %}">
+        <img
+          alt="{% t site.nav_footer_logo_top_alt %}"
+          src="{% t site.nav_footer_logo_top %}"
+          style="height: 100%; width: 100%; object-fit: contain"
+        />
+      </a>
+    </div>
+    <div class="footer-social">
+      <a href="{% t site.nav_footer_logo_bottom_href %}">
+        <img
+          alt="{% t site.nav_footer_logo_bottom_alt %}"
+          src="{% t site.nav_footer_logo_bottom %}"
+          style="height: 100%; width: 100%; object-fit: contain"
+        />
+      </a>
+      <div class="socials">
+        <a class="social-media-icon fs-6" href="{% t footer.linked.url %}" target="_blank" aria-label="{% t footer.linkedin.aria %}">
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a class="social-media-icon fs-6" href="{% t footer.twitter.url %}" target="_blank" aria-label="{% t footer.twitter.aria %}">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var currentYear = new Date().getFullYear();
+        document.getElementById("currentYear").textContent = currentYear;
+      });
+    </script>
+    <a class="copyright" href="" target="_blank"
+      >©&nbsp;<span id="currentYear"></span>&nbsp;{% t site.nav_footer_logo_bottom_alt  %}</a
+    >
+  </footer>
+</div>
 
 <!-- NAVIGATION FOOTER -->
 {% capture nav_footer_custom %} {%- include nav_footer_custom.html -%} {%
@@ -80,7 +73,7 @@ endcapture %} {% if nav_footer_custom != "" %} {{ nav_footer_custom }} {% else
         src="{{ site.license_image_url }}"
       /><br />
     </a>
-    {% endif %} 
+    {% endif %}
   </div>
 </footer>
 {% endif %}
