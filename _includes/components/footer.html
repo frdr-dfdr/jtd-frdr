@@ -19,7 +19,9 @@
 
 <div id="footer-container">
       <footer id="websiteFooter">
-        
+        <div class="footer-navigation">
+          {% if footer_custom != "" %} {{ footer_custom }} {% endif %} 
+        </div>
         <div class="footer-contact">
           <img
             alt=""

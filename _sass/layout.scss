@@ -213,9 +213,6 @@ body {
   position: relative;
   padding-bottom: $sp-10;
   overflow-y: scroll;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 
   @include mq(md) {
     position: static;
@@ -274,7 +271,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: auto;
+  margin-top: 12vh;
 }
 
 .footer-title {
