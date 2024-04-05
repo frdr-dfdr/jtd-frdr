@@ -213,18 +213,11 @@ body {
   position: relative;
   padding-bottom: $sp-10;
   overflow-y: scroll;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 
   @include mq(md) {
     position: static;
     padding-bottom: 0;
   }
-}
-
-footer{
-    margin-top: auto;
 }
 
 // stylelint-enable selector-max-type
@@ -269,4 +262,246 @@ footer{
   height: 1.5em;
   width: 1em;
   vertical-align: text-top;
+}
+
+#websiteFooter {
+  background-color: #272727;
+  color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.footer-title {
+  font-size: 32px;
+  color: white;
+  font-weight: 600;
+}
+
+.footer-contact {
+  height: 200px;
+  padding-bottom: 60px;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.footer-social {
+  padding-left: 1em;
+}
+
+.footer-contact {
+  margin: 10px;
+}
+
+.footer-navigation h3,
+.footer-contact h3 {
+  color: #f0f0f0;
+  margin-bottom: 15px;
+}
+
+.footer-navigation ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-navigation ul li {
+  margin-bottom: 10px;
+}
+
+.footer-navigation ul li a {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 300;
+  &:hover {
+    color: #d6ab00;
+  }
+}
+
+.copyright {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 25px 0 15px 0;
+  color: white;
+  &:hover {
+    color: #d6ab00;
+  }
+}
+
+.socials {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.social-media-icon {
+  font-size: 30px;
+  font-weight: 400;
+  color: #272727;
+  background-color: rgb(229, 229, 229);
+  padding: 2px 6px 2px 6px;
+  border-radius: 2px;
+  text-decoration: none;
+  margin: 10px 8px 0 8px;
+}
+
+.social-media-icon:hover,
+.social-media-icon:focus {
+  background-color: #d6ab00;
+}
+
+/** xs size breakpoint **/
+@media (min-width: 1px) and (max-width: 576px) {
+  #websiteFooter {
+    text-align: center;
+    display: block;
+  }
+  .footer-contact {
+    max-width: 100%;
+    border-right-style: none;
+    padding-top: 20px;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  .footer-social {
+    max-width: 100%;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  .footer-navigation {
+    margin: 10px;
+  }
+}
+
+/** sm size breakpoint **/
+@media (min-width: 577px) and (max-width: 768px) {
+  #websiteFooter {
+    text-align: center;
+    display: block;
+  }
+  .footer-contact {
+    max-width: 100%;
+    border-right-style: none;
+    padding-top: 20px;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  .footer-social {
+    max-width: 100%;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  .footer-navigation {
+    margin: 10px;
+  }
+}
+
+/** md size breakpoint **/
+@media (min-width: 769px) and (max-width: 992px) {
+  #websiteFooter {
+    text-align: center;
+    display: block;
+  }
+  .footer-contact {
+    max-width: 100%;
+    border-right-style: none;
+    padding-top: 20px;
+    padding-left: 25%;
+    padding-right: 25%;
+  }
+
+  .footer-social {
+    max-width: 100%;
+    padding-left: 25%;
+    padding-right: 25%;
+  }
+
+  .footer-navigation {
+    margin: 10px 50px 10px 10px;
+  }
+}
+
+/** lg size breakpoint **/
+@media (min-width: 993px) and (max-width: 1200px) {
+  .footer-contact {
+    max-width: 35%;
+    border-right: 1px solid #fff;
+  }
+
+  .footer-social {
+    max-width: 35%;
+  }
+
+  .footer-navigation {
+    margin: 10px 50px 10px 10px;
+  }
+}
+
+/** xl size breakpoint **/
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .footer-contact {
+    max-width: 35%;
+    border-right: 1px solid #fff;
+  }
+
+  .footer-social {
+    max-width: 35%;
+  }
+
+  .footer-navigation {
+    margin: 10px 50px 10px 10px;
+  }
+}
+
+/** > xl size breakpoint **/
+@media (min-width: 1401px) and (max-width: 1560px) {
+  .footer-contact {
+    max-width: 30%;
+    border-right: 1px solid #fff;
+  }
+
+  .footer-social {
+    max-width: 30%;
+  }
+
+  .footer-navigation {
+    margin: 10px 50px 10px 10px;
+  }
+}
+
+@media (min-width: 1561px) and (max-width: 2000px) {
+  .footer-contact {
+    max-width: 25%;
+    border-right: 1px solid #fff;
+  }
+
+  .footer-social {
+    max-width: 25%;
+  }
+
+  .footer-navigation {
+    margin: 10px 50px 10px 10px;
+  }
+}
+
+@media (min-width: 2001px) {
+  .footer-contact {
+    max-width: 20%;
+    border-right: 1px solid #fff;
+  }
+
+  .footer-social {
+    max-width: 20%;
+  }
+
+  .footer-navigation {
+    margin: 10px 50px 10px 10px;
+  }
 }

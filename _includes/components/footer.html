@@ -17,6 +17,62 @@
   {% endif %}
 </footer>
 
+<div id="footer-container">
+      <footer id="websiteFooter">
+        <div class="footer-navigation">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul>
+            <li><a href="/">Link 1</a></li>
+            <li><a href="/">Link 2</a></li>
+            <li><a href="/">Link 3</a></li>
+            <li><a href="/">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <img
+            alt=""
+            src="{% t site.nav_footer_logo_top %}"
+            style="height: 100%; width: 100%; object-fit: contain"
+          />
+        </div>
+        <div class="footer-social">
+          <img
+            alt=""
+            src="{% t site.nav_footer_logo_bottom %}"
+            style="height: 100%; width: 100%; object-fit: contain"
+          />
+          <div class="socials">
+            <a
+              class="social-media-icon"
+              href=""
+              target="_blank"
+              aria-label=""
+            >
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a
+              class="social-media-icon"
+              href=""
+              target="_blank"
+              aria-label=""
+            >
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            var currentYear = new Date().getFullYear();
+            document.getElementById("currentYear").textContent = currentYear;
+          });
+        </script>
+        <a class="copyright" href="" target="_blank"
+          >©&nbsp;<span id="currentYear"></span>&nbsp;{% t footer.copyright
+          %}</a
+        >
+      </footer>
+    </div>
+
 <!-- NAVIGATION FOOTER -->
 {% capture nav_footer_custom %} {%- include nav_footer_custom.html -%} {%
 endcapture %} {% if nav_footer_custom != "" %} {{ nav_footer_custom }} {% else
