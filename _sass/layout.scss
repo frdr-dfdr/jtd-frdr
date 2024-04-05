@@ -213,11 +213,18 @@ body {
   position: relative;
   padding-bottom: $sp-10;
   overflow-y: scroll;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   @include mq(md) {
     position: static;
     padding-bottom: 0;
   }
+}
+
+footer{
+    margin-top: auto;
 }
 
 // stylelint-enable selector-max-type
