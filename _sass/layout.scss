@@ -354,7 +354,7 @@ body {
 }
 
 /** xs size breakpoint **/
-@media only screen and (max-width: 600px) {
+@media (min-width: 1px) and (max-width: 576px) {
   #websiteFooter {
     text-align: center;
     display: block;
@@ -379,7 +379,7 @@ body {
 }
 
 /** sm size breakpoint **/
-@media only screen and (min-width: 600px){
+@media (min-width: 577px) and (max-width: 768px) {
   #websiteFooter {
     text-align: center;
     display: block;
@@ -404,7 +404,7 @@ body {
 }
 
 /** md size breakpoint **/
-@media only screen and (min-width: 768px) {
+@media (min-width: 769px) and (max-width: 992px) {
   #websiteFooter {
     text-align: center;
     display: block;
@@ -429,10 +429,10 @@ body {
 }
 
 /** lg size breakpoint **/
-@media only screen and (min-width: 992px) {
+@media (min-width: 993px) and (max-width: 1200px) {
   .footer-contact {
     max-width: 35%;
-    border-right: 1px solid #272727 ;
+    border-right: 1px solid #272727;
   }
 
   .footer-social {
@@ -445,7 +445,7 @@ body {
 }
 
 /** xl size breakpoint **/
-@media only screen and (min-width: 1200px) {
+@media (min-width: 1201px) and (max-width: 1400px) {
   .footer-contact {
     max-width: 35%;
     border-right: 1px solid #272727;
@@ -453,6 +453,52 @@ body {
 
   .footer-social {
     max-width: 35%;
+  }
+
+  .footer-navigation {
+    margin: 10px 50px 10px 10px;
+  }
+}
+
+/** > xl size breakpoint **/
+@media (min-width: 1401px) and (max-width: 1560px) {
+  .footer-contact {
+    max-width: 30%;
+    border-right: 1px solid #272727;
+  }
+
+  .footer-social {
+    max-width: 30%;
+  }
+
+  .footer-navigation {
+    margin: 10px 50px 10px 10px;
+  }
+}
+
+@media (min-width: 1561px) and (max-width: 2000px) {
+  .footer-contact {
+    max-width: 25%;
+    border-right: 1px solid #272727;
+  }
+
+  .footer-social {
+    max-width: 25%;
+  }
+
+  .footer-navigation {
+    margin: 10px 50px 10px 10px;
+  }
+}
+
+@media (min-width: 2001px) {
+  .footer-contact {
+    max-width: 20%;
+    border-right: 1px solid #272727;
+  }
+
+  .footer-social {
+    max-width: 20%;
   }
 
   .footer-navigation {
