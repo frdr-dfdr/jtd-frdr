@@ -430,13 +430,22 @@ body {
 
 /** lg size breakpoint **/
 @media (min-width: 993px) and (max-width: 1200px) {
+ #websiteFooter {
+    text-align: center;
+    display: block;
+  }
   .footer-contact {
-    max-width: 35%;
-    border-right: 1px solid #272727;
+    max-width: 100%;
+    border-right-style: none;
+    padding-top: 20px;
+    padding-left: 25%;
+    padding-right: 25%;
   }
 
   .footer-social {
-    max-width: 35%;
+    max-width: 100%;
+    padding-left: 25%;
+    padding-right: 25%;
   }
 
   .footer-navigation {
@@ -447,12 +456,12 @@ body {
 /** xl size breakpoint **/
 @media (min-width: 1201px) and (max-width: 1400px) {
   .footer-contact {
-    max-width: 35%;
+    max-width: 30%;
     border-right: 1px solid #272727;
   }
 
   .footer-social {
-    max-width: 35%;
+    max-width: 30%;
   }
 
   .footer-navigation {
@@ -478,12 +487,12 @@ body {
 
 @media (min-width: 1561px) and (max-width: 2000px) {
   .footer-contact {
-    max-width: 25%;
+    max-width: 30%;
     border-right: 1px solid #272727;
   }
 
   .footer-social {
-    max-width: 25%;
+    max-width: 30%;
   }
 
   .footer-navigation {
