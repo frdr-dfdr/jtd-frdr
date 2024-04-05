@@ -3,7 +3,7 @@
 <footer>
   {% if site.back_to_top %}
   <p><a href="#top" id="back-to-top">{% t site.back_to_top_text %}</a></p>
-  {% endif %} {% if footer_custom != "" %} {{ footer_custom }} {% endif %} {%
+  {% endif %} {%
   capture gh_edit_link_text %} {% t site.gh_edit_link_text %} {% endcapture %}
   {% if site.gh_edit_link and gh_edit_link_text and site.gh_edit_repository and
   site.gh_edit_branch and site.gh_edit_view_mode %}
@@ -19,6 +19,9 @@
 
 <div id="footer-container">
       <footer id="websiteFooter">
+        <div class="footer-navigation">
+          {% if footer_custom != "" %} {{ footer_custom }} {% endif %} 
+        </div>
         <div class="footer-contact">
           <img
             alt=""
