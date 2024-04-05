@@ -1,0 +1,42 @@
+<div id="footer-container">
+  <footer id="websiteFooter" role="contentinfo">
+    <div class="footer-navigation">
+      {% if footer_custom != "" %} {{ footer_custom }} {% endif %}
+    </div>
+    <div class="footer-contact">
+      <a href="{% t site.nav_footer_logo_top_href %}" target="_blank">
+        <img
+          alt="{% t site.nav_footer_logo_top_alt %}"
+          src="{% t site.nav_footer_logo_top %}"
+          style="height: 100%; width: 100%; object-fit: contain"
+        />
+      </a>
+    </div>
+    <div class="footer-social">
+      <a href="{% t site.nav_footer_logo_bottom_href %}" target="_blank">
+        <img
+          alt="{% t site.nav_footer_logo_bottom_alt %}"
+          src="{% t site.nav_footer_logo_bottom %}"
+          style="height: 100%; width: 100%; object-fit: contain"
+        />
+      </a>
+      <div class="socials">
+        <a class="social-media-icon fs-6" href="{% t footer.linkedin.url %}" target="_blank" aria-label="{% t footer.linkedin.aria %}">
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a class="social-media-icon fs-6" href="{% t footer.twitter.url %}" target="_blank" aria-label="{% t footer.twitter.aria %}">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var currentYear = new Date().getFullYear();
+        document.getElementById("currentYear").textContent = currentYear;
+      });
+    </script>
+    <a class="copyright" href="" target="_blank"
+      >©&nbsp;<span id="currentYear"></span>&nbsp;{% t site.nav_footer_logo_bottom_alt  %}</a
+    >
+  </footer>
+</div>
