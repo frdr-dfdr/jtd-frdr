@@ -1,6 +1,6 @@
 {% capture footer_custom %} {%- include footer_custom.html -%} {% endcapture %}
 <hr />
-<footer>
+<div>
   {% if site.back_to_top %}
   <p><a href="#top" id="back-to-top">{% t site.back_to_top_text %}</a></p>
   {% endif %} {% capture gh_edit_link_text %} {% t site.gh_edit_link_text %} {%
@@ -14,7 +14,7 @@
     >
   </p>
   {% endif %}
-</footer>
+</div>
 
 <div id="footer-container">
   <footer id="websiteFooter">
