@@ -13,7 +13,7 @@ or page.child_nav_order == 'reversed' -%} {%- assign sorted_pages = sorted_pages
 <ul>
   {% for child in sorted_pages %}
   <li>
-    <a href="{{ child.url | relative_url }}">{% t child.title %}</a>{% if
+    <a href="{{ site.baseurl }}{{ child.url}}">{% t child.title %}</a>{% if
     child.summary %} - {{ child.summary }}{% endif %}
   </li>
   {% endfor %}
